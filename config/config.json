@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "blogadmin",
-    "password": "123456",
+    "username": "root",
+    "password": "leonB03901047",
     "database": "blog_development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "leonB03901047",
     "database": "blog_test",
     "host": "127.0.0.1",
     "dialect": "mysql"

@@ -22,7 +22,7 @@ class ArticlesPage extends Component {
 
   renderArticles() {
     const { articles } = this.state;
-    return articles.map(article => (
+    return articles.filter(article => (article.userId === this.props.user.id)).map(article => (
       <tr>
         <td><a href={`#/articles/${article.id}`} key={article.id}>{article.title}</a></td>
         <td><a href={`#/articles/${article.id}`} key={article.id}>{(article.tags || []).join(', ')}</a></td>
@@ -61,5 +61,13 @@ class ArticlesPage extends Component {
     );
   }
 }
+
+ArticlesPage.propTypes = {
+  user: React.PropTypes.shape({
+    email: React.PropTypes.string,
+    id: React.PropTypes.number,
+    name: React.PropTypes.string,
+  })
+};
 
 export default ArticlesPage;

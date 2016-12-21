@@ -26,6 +26,7 @@ class CreateArticlePage extends Component {
     const confirm = window.confirm('確定要新增文章嗎？');
     if (confirm) {
       const body = this.state;
+      body.userId = this.props.user.id;
       fetch('/api/articles', {
         headers: {
           Accept: 'application/json',
@@ -99,5 +100,13 @@ class CreateArticlePage extends Component {
     );
   }
 }
+
+CreateArticlePage.propTypes = {
+  user: React.PropTypes.shape({
+    email: React.PropTypes.string,
+    id: React.PropTypes.number,
+    name: React.PropTypes.string,
+  })
+};
 
 export default CreateArticlePage;

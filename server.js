@@ -3,15 +3,17 @@ import path from 'path';
 import express from 'express';
 import webpack from 'webpack';
 import bodyParser from 'body-parser';
-
+import session from 'express-session';
 import api from './src/api/';
 import config from './webpack.config';
 
 const port = process.env.PORT || 3000;
 
+
 const app = express();
 const compiler = webpack(config);
 
+app.use(session({}));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
